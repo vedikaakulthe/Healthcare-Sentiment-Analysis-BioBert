@@ -1,0 +1,25 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Dataset folder (large files)
+data/
+
+# Model folder (large or generated files)
+model/
+biobert_healthcare_sentiment/
+
+# VSCode / IDE / environment
+.vscode/
+*.env
+venv/
+
+# System / temp files
+*.exe
+*.dll
+*.log
+.DS_Store
+Thumbs.db
+
+
