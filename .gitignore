@@ -1,25 +1,17 @@
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
+# Ignore datasets
+Data/
 
-# Dataset folder (large files)
-data/
-
-# Model folder (large or generated files)
+# Ignore models
 model/
 biobert_healthcare_sentiment/
 
-# VSCode / IDE / environment
-.vscode/
-*.env
-venv/
+# Python cache
+__pycache__/
+*.pyc
 
-# System / temp files
-*.exe
-*.dll
-*.log
-.DS_Store
-Thumbs.db
+# Environment / IDE
+.env
+.vscode/
+
 
 
