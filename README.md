@@ -1,106 +1,100 @@
-🏥 Healthcare Sentiment Analysis (AI/ML Project)
-Project Overview
+# Healthcare Sentiment Analysis using BioBERT
 
-This project focuses on domain-specific sentiment analysis for healthcare-related text, addressing real-world challenges such as noisy language, ambiguous sentiment, and ethical handling of sensitive data.
+A **research-oriented NLP system** for sentiment analysis in the healthcare domain, leveraging **BioBERT**, a transformer model pretrained on biomedical corpora.
 
-Unlike generic sentiment analysis systems, this project is designed with a research-oriented and production-aware architecture, making it suitable for academic research, industry deployment, and further extension using transformer-based models such as BioBERT.
--------------------------------------------------------------------------------------------
+This project demonstrates **domain-adapted NLP**, **confidence-aware inference**, and **production-ready ML design**.
 
-Problem Statement
+---------------------------------------------------------------------------------------------------------------------------------
 
-Healthcare text (patient reviews, clinical feedback, medical opinions) often contains:
-1.ambiguous emotional cues
-2.mixed sentiment
-3.informal and noisy language
+## Problem Statement:
 
-Traditional sentiment models fail to generalize well in this domain.
+Generic sentiment models fail on healthcare text due to:
+- Clinical vocabulary
+- Drug names and adverse effects
+- Context-dependent sentiment polarity
 
-This project aims to build a robust, domain-adapted sentiment analysis pipeline for healthcare applications.
--------------------------------------------------------------------------------------------
+This project addresses the gap by fine-tuning **BioBERT** on healthcare-specific datasets.
 
-Key Features
+---------------------------------------------------------------------------------------------------------------------------------
 
-1.Healthcare-focused sentiment classification (Positive / Neutral / Negative)
-2.Manual and programmatic inference support
-3.Confidence-aware sentiment predictions
-4.Model-agnostic inference design
-5.Privacy-aware repository structure (datasets & models excluded)
-6.Ready for extension to transformer-based models (BioBERT)
-------------------------------------------------------------------------------------------
+## Model Architecture:
 
-Research-Oriented Contributions
+- **Base Model:** BioBERT (`dmis-lab/biobert-base-cased-v1.1`)
+- **Task:** Multi-class sentiment classification
+- **Framework:** PyTorch + HuggingFace Transformers
+- **Inference:** Softmax confidence scoring
 
-This project is designed with a research-first mindset and emphasizes:
+---------------------------------------------------------------------------------------------------------------------------------
 
-a. Domain-specific NLP: Tailored for healthcare text rather than generic datasets
-b. Noisy real-world text handling: Designed for informal and ambiguous inputs
-c. Model-agnostic inference pipeline: Separation of training and inference logic
-d. Confidence-aware predictions: Outputs sentiment confidence for uncertainty estimation
-e. Ethical AI practices: Avoids uploading sensitive healthcare data
+## Datasets:
 
-These aspects make the project suitable for academic research, benchmarking, and further experimentation.
--------------------------------------------------------------------------------------------
+- Healthcare Tweets
+- Drug Reviews Dataset
+Both datasets are unified into a **single labeled corpus** with consistent sentiment mapping.
 
-Project Structure
+---------------------------------------------------------------------------------------------------------------------------------
+
+## Project Structure:
+
 Healthcare-Sentiment-Analysis/
 │
-├── app.py                  # Application entry point (future UI / API integration)
-├── inference.py            # Standalone inference script (manual input supported)
-├── requirements.txt        # Project dependencies
-├── README.md               # Project documentation
-├── .gitignore              # Excludes data, models, and system files
+├── src/
+│ ├── config.py # Centralized experiment configuration
+│ ├── train_biobert.py # BioBERT fine-tuning pipeline
+│ ├── data/
+│ │ └── dataset.py # Data loading & preprocessing
+│ └── services/
+│ └── biobert_inference.py # Inference + confidence score
 │
-├── data/
-│   └── README.md           # Dataset intentionally excluded
-│
-├── model/
-│   └── README.md           # Trained model artifacts excluded
-│
-└── biobert_healthcare_sentiment/
-    └── (reserved for fine-tuned transformer model)
--------------------------------------------------------------------------------------------
+├── inference.py # Quick local inference
+├── requirements.txt
+├── README.md
+└── .gitignore
 
-How to Run Inference (Local)
+yaml
+Copy code
 
-1.Install dependencies
-pip install -r requirements.txt
+---------------------------------------------------------------------------------------------------------------------------------
 
-2.Run inference
-python inference.py
+## Inference Example:
 
-You can: Enter your own healthcare-related text OR  press Enter to use a sample input
+```python
+from src.services.biobert_inference import predict_sentiment
 
-🧪 Example Input: The medication caused severe side effects and worsened the condition.
-Output
-Sentiment  : Negative
-Confidence : 0.85
--------------------------------------------------------------------------------------------
+result = predict_sentiment("This medication caused severe nausea.")
+print(result)
+Output:
 
-Data & Model Policy:
+json
+Copy code
+{
+  "sentiment": "negative",
+  "confidence": 0.94
+}
 
-1.Datasets are excluded to respect privacy and licensing constraints
-2.Model files are excluded due to size and reproducibility concerns
-3.Repository follows ethical and responsible AI practices
--------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
 
-Future Research Directions
-1.Fine-tuning BioBERT on domain-specific healthcare datasets
-2.Calibration techniques for better uncertainty estimation
-3.Explainable AI (XAI) methods for sentiment interpretation
-4.Multilingual healthcare sentiment analysis
--------------------------------------------------------------------------------------------
+## Key Research-Level Features:
 
-Tech Stack:
-Python
-NLP / Machine Learning
-Modular inference design
-Git & GitHub (version control)
--------------------------------------------------------------------------------------------
+Domain-specific Transformer (BioBERT)
+Confidence-aware predictions
+Clean separation of training and inference
+Reproducible configuration design
+Healthcare-focused NLP pipeline
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+## Future Extensions:
+
+Upgrade to ClinicalBERT
+Active learning on uncertain predictions
+REST API deployment (FastAPI / Flask)
+Healthcare chatbot integration
+Adverse drug reaction monitoring
+
+---------------------------------------------------------------------------------------------------------------------------------
 
 Author
 Vedika A. Kulthe
-AI & Data Science | Applied ML | Healthcare NLP
--------------------------------------------------------------------------------------------
-
-License
-This project is intended for academic, research, and educational purposes.
+AI & Data Science | ML Research Enthusiast
+Focus: Healthcare NLP, Transformers, Applied AI
