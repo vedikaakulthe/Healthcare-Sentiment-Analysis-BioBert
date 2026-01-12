@@ -63,10 +63,8 @@ from src.services.biobert_inference import predict_sentiment
 
 result = predict_sentiment("This medication caused severe nausea.")
 print(result)
-Output:
 
-json
-Copy code
+Output:
 {
   "sentiment": "negative",
   "confidence": 0.94
@@ -74,27 +72,29 @@ Copy code
 
 ---------------------------------------------------------------------------------------------------------------------------------
 
-## Key Research-Level Features:
+Key Research-Level Features:
 
-Domain-specific Transformer (BioBERT)
-Confidence-aware predictions
-Clean separation of training and inference
-Reproducible configuration design
-Healthcare-focused NLP pipeline
+1. Domain-specific Transformer (BioBERT)
+2. Confidence-aware predictions
+3. Clean separation of training and inference
+4. Reproducible configuration design
+5. Healthcare-focused NLP pipeline
 
 ---------------------------------------------------------------------------------------------------------------------------------
 
-## Future Extensions:
+Future Extensions:
 
 Upgrade to ClinicalBERT
 Active learning on uncertain predictions
 REST API deployment (FastAPI / Flask)
 Healthcare chatbot integration
-Adverse drug reaction monitoring
 
 ---------------------------------------------------------------------------------------------------------------------------------
 
 Author
+
 Vedika A. Kulthe
 AI & Data Science | ML Research Enthusiast
 Focus: Healthcare NLP, Transformers, Applied AI
+
+
