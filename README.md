@@ -34,27 +34,7 @@ Both datasets are unified into a **single labeled corpus** with consistent senti
 
 ---------------------------------------------------------------------------------------------------------------------------------
 
-## Project Structure:
 
-Healthcare-Sentiment-Analysis/
-│
-├── src/
-│ ├── config.py # Centralized experiment configuration
-│ ├── train_biobert.py # BioBERT fine-tuning pipeline
-│ ├── data/
-│ │ └── dataset.py # Data loading & preprocessing
-│ └── services/
-│ └── biobert_inference.py # Inference + confidence score
-│
-├── inference.py # Quick local inference
-├── requirements.txt
-├── README.md
-└── .gitignore
-
-yaml
-Copy code
-
----------------------------------------------------------------------------------------------------------------------------------
 
 ## Inference Example:
 
@@ -80,21 +60,6 @@ Key Research-Level Features:
 4. Reproducible configuration design
 5. Healthcare-focused NLP pipeline
 
----------------------------------------------------------------------------------------------------------------------------------
 
-Future Extensions:
-
-Upgrade to ClinicalBERT
-Active learning on uncertain predictions
-REST API deployment (FastAPI / Flask)
-Healthcare chatbot integration
-
----------------------------------------------------------------------------------------------------------------------------------
-
-Author
-
-Vedika A. Kulthe
-AI & Data Science | ML Research Enthusiast
-Focus: Healthcare NLP, Transformers, Applied AI
 
 
